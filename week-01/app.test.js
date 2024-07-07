@@ -10,7 +10,7 @@ const {
 } = require('./app');
 
 test('Transformar uma palavra em letras maiusculas', () => {
-  expect(toUpperCase('agronorte')).toBe('AGRONORTE');
+  expect(toUpperCase('dom ')).toBe('DOMINIQUE');
 });
 
 test('Concatenar duas strings', () => {
