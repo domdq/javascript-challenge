@@ -1,0 +1,14 @@
+{
+  "name": "javascript-challenge",
+  "version": "1.0.0",
+  "description": "Desafio semana de Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
