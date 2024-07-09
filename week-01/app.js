@@ -1,14 +1,36 @@
 //Dado um array de objetos que representam pessoas com nome e idade, crie uma função que retorna um novo array contendo apenas os nomes dessas pessoas.
-const getNames = (pessoas) => {};
+const getNames = (pessoas) => {
+  const novoArray = [];
+  for (let i = 0; i < pessoas.length; i++) {
+    novoArray.push(pessoas[i].nome);
+  }
+  return novoArray;
+};
 
 // Dado um array de objetos que representam eventos com data no formato ISO, crie um novo array de strings formatadas como "DD/MM/YYYY".
-const formatDates = (eventos) => {};
+const formatDates = (eventos) => {
+  const dataArray = [];
+  for (let i = 0; i < eventos.length; i++) {
+    dataArray.push(new Date(eventos[i].data).toLocaleDateString("pt-BR"));
+  }
+  return dataArray;
+};
 
 // Dado um array de números, crie um novo array contendo apenas os números maiores que 10.
-const filterGreaterThanTen = (numeros) => {};
+const filterGreaterThanTen = (numeros) => {
+  const maiorQue10 = numeros.filter(function (maior) {
+    return maior > 10;
+  });
+  return maiorQue10;
+};
 
 // Dado um array de objetos que representam produtos com nome e preço, encontre o primeiro produto que custa mais de 50 unidades monetárias.
-const findExpensiveProduct = (produtos) => {};
+const findExpensiveProduct = (produtos) => {
+  let produtosCaros = produtos.find(function (produtoCaro) {
+    return produtoCaro.preco > 50;
+  });
+  return produtosCaros;
+};
 
 // Dado um array de objetos que representam transações com um valor, calcule a soma total dessas transações.
 const calculateTotal = (transacoes) => {};
