@@ -33,10 +33,22 @@ const findExpensiveProduct = (produtos) => {
 };
 
 // Dado um array de objetos que representam transações com um valor, calcule a soma total dessas transações.
-const calculateTotal = (transacoes) => {};
+const calculateTotal = (transacoes) => {
+  let somaTotal = 0;
+  for (let i = 0; i < transacoes.length; i++) {
+    somaTotal += transacoes[i].valor;
+  }
+  return somaTotal;
+};
 
 // Dado um array de strings que representam nomes, crie um novo array onde cada nome está em maiúsculas.
-const toUpperCaseNames = (nomes) => {};
+const toUpperCaseNames = (nomes) => {
+  mai = [];
+  for (let i = 0; i < nomes.length; i++) {
+    mai.push(nomes[i].toUpperCase());
+  }
+  return mai;
+};
 
 // Dado um array de objetos que representam produtos com nome e preço, aplique um desconto de 10% em cada produto e retorne um novo array com os preços atualizados.
 const applyDiscount = (produtos) => {};
