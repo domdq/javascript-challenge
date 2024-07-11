@@ -51,10 +51,23 @@ const toUpperCaseNames = (nomes) => {
 };
 
 // Dado um array de objetos que representam produtos com nome e preço, aplique um desconto de 10% em cada produto e retorne um novo array com os preços atualizados.
-const applyDiscount = (produtos) => {};
+const applyDiscount = (produtos) => {
+  for (let i = 0; i < produtos.length; i++) {
+    let calc = (10 * produtos[i].preco) / 100;
+    let precoAtualizado = produtos[i].preco - calc;
+    produtos[i].preco = precoAtualizado;
+  }
+  return produtos;
+};
 
 // Dado um array de números representando temperaturas em Celsius, crie um novo array com essas temperaturas convertidas para Fahrenheit.
-const celsiusToFahrenheit = (temperaturas) => {};
+const celsiusToFahrenheit = (temperaturas) => {
+  for (let i = 0; i < temperaturas.length; i++) {
+    let calcFahrenheit = temperaturas[i] * 1.8 + 32;
+    temperaturas[i] = calcFahrenheit;
+  }
+  return temperaturas;
+};
 
 // Dado um array de strings que representam nomes, imprima cada nome no console.
 const printNames = (nomes) => {};
