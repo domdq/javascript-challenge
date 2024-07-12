@@ -70,10 +70,18 @@ const celsiusToFahrenheit = (temperaturas) => {
 };
 
 // Dado um array de strings que representam nomes, imprima cada nome no console.
-const printNames = (nomes) => {};
+const printNames = (nomes) => {
+  for (let i = 0; i < nomes.length; i++) {
+    console.log(nomes[i]);
+  }
+};
 
 // Dado um array de objetos que representam alunos com nome e nota, imprima no console uma mensagem para cada aluno com seu nome e sua nota.
-const printStudentGrades = (alunos) => {};
+const printStudentGrades = (alunos) => {
+  for (let i = 0; i < alunos.length; i++) {
+    console.log(`${alunos[i].nome} tirou nota ${alunos[i].nota}`);
+  }
+};
 
 module.exports = {
   getNames,
