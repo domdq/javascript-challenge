@@ -1,3 +1,4 @@
+
 const {
   getNames,
   formatDates,
@@ -100,4 +101,4 @@ test('Imprimir notas dos alunos no console', () => {
   expect(consoleSpy).toHaveBeenCalledWith('Bruno tirou nota 7.5');
   expect(consoleSpy).toHaveBeenCalledWith('Carla tirou nota 8.5');
   consoleSpy.mockRestore();
-});
+}an
