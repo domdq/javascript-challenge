@@ -11,7 +11,7 @@ const getNames = (pessoas) => {
 const formatDates = (eventos) => {
   const dataArray = [];
   for (let i = 0; i < eventos.length; i++) {
-    dataArray.push(new Date(eventos[i].data).toLocaleDateString("pt-BR"));
+    dataArray.push(new Date(eventos[i].data).toLocaleDateString('pt-BR'));
   }
   return dataArray;
 };
@@ -95,4 +95,3 @@ module.exports = {
   printNames,
   printStudentGrades,
 };
-in
