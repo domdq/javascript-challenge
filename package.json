@@ -4,7 +4,7 @@
   "description": "Desafio semana de Javascript",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest ./week-02/app.test.js"
   },
   "author": "",
   "license": "ISC",
