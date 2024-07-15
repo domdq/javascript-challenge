@@ -1,48 +1,41 @@
 const {
-  getNames,
-  formatDates,
-  filterGreaterThanTen,
-  findExpensiveProduct,
-  calculateTotal,
-  toUpperCaseNames,
-  applyDiscount,
-  celsiusToFahrenheit,
-  printNames,
-  printStudentGrades,
+  transformAndFilter,
+  arrayToObject,
+  transformProducts,
+  reverseStrings,
+  calculateAverages,
+  filterAndFormatDates,
+  capitalizeWords,
+  convertToGrams,
+  removeDuplicates,
+  reverseAndUpperCase,
 } = require('./app');
 
-test('Obter nomes das pessoas', () => {
-  const pessoas = [
-    { nome: 'Ana', idade: 28 },
-    { nome: 'Bruno', idade: 22 },
-    { nome: 'Carla', idade: 30 },
-  ];
-  expect(getNames(pessoas)).toEqual(['Ana', 'Bruno', 'Carla']);
+test('Multiplicar e filtrar números', () => {
+  const numeros = [2, 5, 3, 7];
+  expect(transformAndFilter(numeros)).toEqual([14]);
 });
 
-test('Formatar datas', () => {
-  const eventos = [
-    { nome: 'Evento 1', data: '2024-07-01T10:00:00Z' },
-    { nome: 'Evento 2', data: '2024-08-15T15:00:00Z' },
-  ];
-  expect(formatDates(eventos)).toEqual(['01/07/2024', '15/08/2024']);
+test('Converter array para objeto', () => {
+  const itens = ['maçã', 'banana', 'cereja'];
+  expect(arrayToObject(itens)).toEqual({ maçã: 4, banana: 6, cereja: 6 });
 });
 
-test('Filtrar números maiores que 10', () => {
-  const numeros = [5, 12, 8, 21, 3, 18];
-  expect(filterGreaterThanTen(numeros)).toEqual([12, 21, 18]);
-});
-
-test('Encontrar produto caro', () => {
+test('Transformar produtos', () => {
   const produtos = [
-    { nome: 'Produto A', preco: 45 },
-    { nome: 'Produto B', preco: 55 },
-    { nome: 'Produto C', preco: 35 },
+    { nome: 'Produto A', preco: 100 },
+    { nome: 'Produto B', preco: 200 },
   ];
-  expect(findExpensiveProduct(produtos)).toEqual({
-    nome: 'Produto B',
-    preco: 55,
-  });
+  const produtosTransformados = [
+    { nome: 'PRODUTO A', preco: 110 },
+    { nome: 'PRODUTO B', preco: 220 },
+  ];
+  expect(transformProducts(produtos)).toEqual(produtosTransformados);
+});
+
+test('Inverter strings', () => {
+  const strings = ['abc', 'def', 'ghi'];
+  expect(reverseStrings(strings)).toEqual(['cba', 'fed', 'ihg']);
 });
 
 test('Calcular total das transações', () => {
@@ -54,50 +47,53 @@ test('Calcular total das transações', () => {
   expect(calculateTotal(transacoes)).toBe(350);
 });
 
-test('Converter nomes para maiúsculas', () => {
-  const nomes = ['ana', 'bruno', 'carla'];
-  expect(toUpperCaseNames(nomes)).toEqual(['ANA', 'BRUNO', 'CARLA']);
-});
-
-test('Aplicar desconto nos produtos', () => {
-  const produtos = [
-    { nome: 'Produto A', preco: 100 },
-    { nome: 'Produto B', preco: 200 },
-    { nome: 'Produto C', preco: 150 },
-  ];
-  const produtosComDesconto = [
-    { nome: 'Produto A', preco: 90 },
-    { nome: 'Produto B', preco: 180 },
-    { nome: 'Produto C', preco: 135 },
-  ];
-  expect(applyDiscount(produtos)).toEqual(produtosComDesconto);
-});
-
-test('Converter temperaturas de Celsius para Fahrenheit', () => {
-  const temperaturasCelsius = [0, 20, 30, 40];
-  expect(celsiusToFahrenheit(temperaturasCelsius)).toEqual([32, 68, 86, 104]);
-});
-
-test('Imprimir nomes no console', () => {
-  const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
-  const nomes = ['Ana', 'Bruno', 'Carla'];
-  printNames(nomes);
-  expect(consoleSpy).toHaveBeenCalledWith('Ana');
-  expect(consoleSpy).toHaveBeenCalledWith('Bruno');
-  expect(consoleSpy).toHaveBeenCalledWith('Carla');
-  consoleSpy.mockRestore();
-});
-
-test('Imprimir notas dos alunos no console', () => {
-  const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
+test('Calcular média e status dos alunos', () => {
   const alunos = [
-    { nome: 'Ana', nota: 9 },
-    { nome: 'Bruno', nota: 7.5 },
-    { nome: 'Carla', nota: 8.5 },
+    { nome: 'Ana', notas: [8, 9, 7] },
+    { nome: 'Bruno', notas: [5, 6, 7] },
   ];
-  printStudentGrades(alunos);
-  expect(consoleSpy).toHaveBeenCalledWith('Ana tirou nota 9');
-  expect(consoleSpy).toHaveBeenCalledWith('Bruno tirou nota 7.5');
-  expect(consoleSpy).toHaveBeenCalledWith('Carla tirou nota 8.5');
-  consoleSpy.mockRestore();
+  const resultadoEsperado = [
+    { nome: 'Ana', media: 8, status: 'Aprovado' },
+    { nome: 'Bruno', media: 6, status: 'Reprovado' },
+  ];
+  expect(calculateAverages(alunos)).toEqual(resultadoEsperado);
+});
+
+test('Filtrar e formatar datas', () => {
+  const eventos = [
+    { nome: 'Evento 1', data: '2024-07-01T10:00:00Z' },
+    { nome: 'Evento 2', data: '2024-08-15T15:00:00Z' },
+  ];
+  const dataLimite = '2024-07-15';
+  expect(filterAndFormatDates(eventos, dataLimite)).toEqual(['15/08/2024']);
+});
+
+test('Capitalizar palavras nas frases', () => {
+  const frases = ['ola mundo', 'bem vindo ao javascript'];
+  expect(capitalizeWords(frases)).toEqual([
+    'Ola Mundo',
+    'Bem Vindo Ao Javascript',
+  ]);
+});
+
+test('Converter medidas para gramas', () => {
+  const medidas = [
+    { valor: 2, unidade: 'kg' },
+    { valor: 500, unidade: 'g' },
+  ];
+  const medidasConvertidas = [
+    { valor: 2000, unidade: 'g' },
+    { valor: 500, unidade: 'g' },
+  ];
+  expect(convertToGrams(medidas)).toEqual(medidasConvertidas);
+});
+
+test('Remover duplicatas do array', () => {
+  const numeros = [1, 2, 2, 3, 4, 4, 5];
+  expect(removeDuplicates(numeros)).toEqual([1, 2, 3, 4, 5]);
+});
+
+test('Inverter e converter strings para maiúsculas', () => {
+  const strings = ['abc', 'def', 'ghi'];
+  expect(reverseAndUpperCase(strings)).toEqual(['CBA', 'FED', 'IHG']);
 });
