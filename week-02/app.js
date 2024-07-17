@@ -1,8 +1,24 @@
 // Dado um array de números, crie uma função que retorna um novo array com os números multiplicados por 2 e depois filtrados para manter apenas os números maiores que 10.
-const transformAndFilter = (numeros) => {};
+const transformAndFilter = (numeros) => {
+  let multiplicar = numeros.map(function (numero) {
+    return numero * 2;
+  });
+  let filtrar = multiplicar.filter(function (maiorQ10) {
+    return maiorQ10 > 10;
+  });
+  return filtrar;
+};
 
 // Dado um array de strings que representam itens, crie uma função que retorna um objeto onde cada chave é um item e o valor é o comprimento da string do item.
-const arrayToObject = (itens) => {};
+const arrayToObject = (itens) => {
+  let newObeject = {};
+  for (let i = 0; i < itens.length; i++) {
+    let chave = itens[i];
+    let valor = itens[i].length;
+    newObeject[chave] = valor;
+  }
+  return newObeject;
+};
 
 // Dado um array de objetos que representam produtos com nome e preço, crie uma função que retorna um novo array de objetos com os nomes em maiúsculas e os preços aumentados em 10%.
 const transformProducts = (produtos) => {};
