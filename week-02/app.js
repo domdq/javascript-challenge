@@ -1,3 +1,5 @@
+const { toUpperCaseNames } = require("../week-01/app");
+
 // Dado um array de números, crie uma função que retorna um novo array com os números multiplicados por 2 e depois filtrados para manter apenas os números maiores que 10.
 const transformAndFilter = (numeros) => {
   let multiplicar = numeros.map(function (numero) {
@@ -21,10 +23,24 @@ const arrayToObject = (itens) => {
 };
 
 // Dado um array de objetos que representam produtos com nome e preço, crie uma função que retorna um novo array de objetos com os nomes em maiúsculas e os preços aumentados em 10%.
-const transformProducts = (produtos) => {};
+const transformProducts = (produtos) => {
+  uppecase = [];
+  for (let i = 0; i < produtos.length; i++) {
+    let precoAtual = produtos[i].preco * 0.1;
+    let novoPreco = produtos[i].preco + 10;
+    produtos[i].preco = novoPreco;
+    uppecase.push(produtos[i].nome.toUpperCase(), produtos[i].preco);
+    console.log(uppecase);
+  }
+};
 
 //  Dado um array de strings, crie uma função que retorna um novo array onde cada string está invertida.
-const reverseStrings = (strings) => {};
+const reverseStrings = (strings) => {
+  let invertida = strings.map(function (reverso) {
+    return reverso.split("").reverse().join("");
+  });
+  return invertida;
+};
 
 // Dado um array de objetos que representam alunos com nome e notas, crie uma função que retorna um novo array de objetos com a média das notas e um status de aprovação (média >= 7).
 const calculateAverages = (alunos) => {};
@@ -39,10 +55,18 @@ const capitalizeWords = (frases) => {};
 const convertToGrams = (medidas) => {};
 
 // Dado um array de números, crie uma função que retorna um novo array sem valores duplicados.
-const removeDuplicates = (numeros) => {};
+const removeDuplicates = (numeros) => {
+  const numerosSemRepetição = [...new Set(numeros)];
+  return numerosSemRepetição;
+};
 
 //Dado um array de strings, crie uma função que retorna um novo array onde cada string é invertida e em maiúsculas.
-const reverseAndUpperCase = (strings) => {};
+const reverseAndUpperCase = (strings) => {
+  let inver = strings.map(function (revese) {
+    return revese.toUpperCase().split("").reverse().join("");
+  });
+  return inver;
+};
 
 module.exports = {
   transformAndFilter,

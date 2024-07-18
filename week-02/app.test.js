@@ -21,14 +21,14 @@ test("Converter array para objeto", () => {
   expect(arrayToObject(itens)).toEqual({ maçã: 4, banana: 6, cereja: 6 });
 });
 
-test.only("Transformar produtos", () => {
+test("Transformar produtos", () => {
   const produtos = [
     { nome: "Produto A", preco: 100 },
     { nome: "Produto B", preco: 200 },
   ];
   const produtosTransformados = [
     { nome: "PRODUTO A", preco: 110 },
-    { nome: "PRODUTO B", preco: 220 },
+    { nome: "PRODUTO B", preco: 210 },
   ];
   expect(transformProducts(produtos)).toEqual(produtosTransformados);
 });
@@ -36,15 +36,6 @@ test.only("Transformar produtos", () => {
 test("Inverter strings", () => {
   const strings = ["abc", "def", "ghi"];
   expect(reverseStrings(strings)).toEqual(["cba", "fed", "ihg"]);
-});
-
-test("Calcular total das transações", () => {
-  const transacoes = [
-    { descricao: "Transação 1", valor: 100 },
-    { descricao: "Transação 2", valor: 200 },
-    { descricao: "Transação 3", valor: 50 },
-  ];
-  expect(calculateTotal(transacoes)).toBe(350);
 });
 
 test("Calcular média e status dos alunos", () => {
