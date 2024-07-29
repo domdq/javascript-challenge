@@ -24,14 +24,18 @@ const arrayToObject = (itens) => {
 
 // Dado um array de objetos que representam produtos com nome e preço, crie uma função que retorna um novo array de objetos com os nomes em maiúsculas e os preços aumentados em 10%.
 const transformProducts = (produtos) => {
-  uppecase = [];
+  const uppecaseProdutos = [];
   for (let i = 0; i < produtos.length; i++) {
-    let precoAtual = produtos[i].preco * 0.1;
-    let novoPreco = produtos[i].preco + 10;
-    produtos[i].preco = novoPreco;
-    uppecase.push(produtos[i].nome.toUpperCase(), produtos[i].preco);
-    console.log(uppecase);
+    let porcentagem = produtos[i].preco * 0.1;
+    let novoPreco = produtos[i].preco + porcentagem;
+    let nomeUppercase = produtos[i].nome.toUpperCase();
+    const newObjeto = {
+      nome: nomeUppercase,
+      preco: novoPreco,
+    };
+    uppecaseProdutos.push(newObjeto);
   }
+  return uppecaseProdutos;
 };
 
 //  Dado um array de strings, crie uma função que retorna um novo array onde cada string está invertida.
@@ -43,7 +47,26 @@ const reverseStrings = (strings) => {
 };
 
 // Dado um array de objetos que representam alunos com nome e notas, crie uma função que retorna um novo array de objetos com a média das notas e um status de aprovação (média >= 7).
-const calculateAverages = (alunos) => {};
+const calculateAverages = (alunos) => {
+  const media = [];
+  for (let aluno = 0; aluno < alunos.length; aluno++) {
+    let somarMedias = alunos[aluno].notas.length;
+    let somar = 0;
+    for (let nota = 0; nota < alunos[aluno].notas.length; nota++) {
+      somar += alunos[aluno].notas[nota];
+    }
+    let mediaTotal = somar / somarMedias;
+    const status = mediaTotal >= 7 ? "Aprovado" : "Reprovado";
+    const nome = alunos[aluno].nome;
+    const newObjeto = {
+      nome: nome,
+      media: mediaTotal,
+      status: status,
+    };
+    media.push(newObjeto);
+  }
+  return media;
+};
 
 // Dado um array de objetos que representam eventos com data no formato ISO, crie uma função que retorna um novo array de strings formatadas como "DD/MM/YYYY" e filtradas para manter apenas eventos após uma certa data.
 const filterAndFormatDates = (eventos, dataLimite) => {};

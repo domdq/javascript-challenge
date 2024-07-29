@@ -28,7 +28,7 @@ test("Transformar produtos", () => {
   ];
   const produtosTransformados = [
     { nome: "PRODUTO A", preco: 110 },
-    { nome: "PRODUTO B", preco: 210 },
+    { nome: "PRODUTO B", preco: 220 },
   ];
   expect(transformProducts(produtos)).toEqual(produtosTransformados);
 });
